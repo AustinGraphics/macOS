@@ -1,0 +1,54 @@
+.appwindow.maps {
+    min-width: 550px;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+.appwindow.maps .windowsections .main .topbar {
+    border-bottom: 2px solid #1A1A1A;
+    background-color: #191c1fbb;
+    backdrop-filter: blur(60px);
+}
+
+.appwindow.maps .windowsections .main .topbar {
+    padding-left: 100px;
+    gap: 20px;
+}
+
+.appwindow.maps .windowsections .main .topbar .button {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.appwindow.maps .windowsections .main .topbar .button.disabled {
+    color: rgba(255, 255, 255, 0.26);
+}
+
+.appwindow.maps .windowsections .main .topbar .right {
+    gap: 25px;
+}
+
+.appwindow.maps .windowsections .main .body {
+    background-color: transparent;
+    padding: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+.appwindow.maps .windowsections .main .body iframe {
+    min-width: calc(100% + 510px);
+    height: 100%;
+    margin-top: -50px;
+}
+
+.appwindow.maps .windowsections .main .body .applemapslogo {
+    width: 66px;
+    height: 20px;
+    position: absolute;
+    z-index: 2;
+    background-image: url(/applications/Maps/Apple_Maps_logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 10px;
+    left: 10px;
+    opacity: 0.8;
+}

@@ -1,0 +1,84 @@
+.appwindow.safari {
+    min-width: 940px;
+    backdrop-filter: blur(20px) !important;
+}
+
+.appwindow.safari .windowsections .main .topbar {
+    padding-left: 100px;
+}
+
+.appwindow.safari .windowsections .main .topbar .button {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.appwindow.safari .windowsections .main .topbar .button.disabled {
+    color: rgba(255, 255, 255, 0.26);
+}
+
+.appwindow.safari .windowsections .main .topbar .middle {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.appwindow.safari .windowsections .main .topbar .middle .button {
+    margin-left: -25px;
+}
+
+
+.appwindow.safari .windowsections .main .topbar .middle .safarisearchbar {
+    max-width: 512px;
+    width: 512px;
+    display: flex;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 400;
+    gap: 0px;
+    user-select: all;
+    text-wrap: nowrap;
+    color: rgba(255, 255, 255, 0.26);
+    overflow: hidden;
+}
+
+
+.appwindow.safari .windowsections .main .topbar .middle .safarisearchbar[contenteditable]:focus {
+    border-color: #007aff;
+    outline: 1px solid #5c5f5f;
+    user-select: all;
+    text-align: center;
+    text-align-last: center;
+    overflow: hidden;
+    text-wrap: nowrap;
+    color: white !important;
+}
+
+.appwindow.safari .windowsections .main .topbar .middle .safarisearchbar .searchtexticon {
+    color: #DBDBDC;
+    font-size: 12px;
+    user-select: none;
+}
+
+.appwindow.safari .windowsections .main .topbar .middle .safarisearchbar .text {
+    text-wrap: nowrap;
+}
+
+.appwindow.safari .windowsections .main .topbar .right {
+    margin-left: 0px;
+    gap: 20px;
+}
+
+.appwindow.safari .windowsections .main .body {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.appwindow.safari .windowsections .main .body iframe {
+    width: 100%;
+    height: calc(100% - 49px);
+}

@@ -1,0 +1,638 @@
+@font-face {
+    font-family: SFpro;
+    font-weight: 800;
+    src: url(../fonts/SF-Pro-Text-Bold.otf);
+}
+
+@font-face {
+    font-family: SFpro;
+    font-weight: 700;
+    src: url(../fonts/SF-Pro-Text-Semibold.otf);
+}
+
+@font-face {
+    font-family: SFpro;
+    font-weight: 600;
+    src: url(../fonts/SF-Pro-Text-Medium.otf);
+}
+
+@font-face {
+    font-family: SFpro;
+    font-weight: 500;
+    src: url(../fonts/SF-Pro-Text-Regular.otf);
+}
+
+@font-face {
+    font-family: SFpro;
+    font-weight: 400;
+    src: url(../fonts/SF-Pro-Text-Light.otf);
+}
+
+@font-face {
+    font-family: SFpro;
+    font-weight: 300;
+    src: url(../fonts/SF-Pro-Text-Thin.otf);
+}
+
+::-webkit-scrollbar {
+    width: 2px !important;
+}
+
+:hover> ::-webkit-scrollbar {
+    width: 7px !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff71 !important;
+    border-radius: 6px !important;
+}
+
+* {
+    font-family: SFpro;
+    font-weight: 500;
+    color: white;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+}
+
+html {
+    background-image: url(../media/wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.macmenubar {
+    width: calc(100vw - 15px);
+    height: 30px;
+    background: rgba(0, 0, 0, 0.141);
+    backdrop-filter: blur(200px);
+    padding: 0px 10px 0px 5px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+
+.macmenubar .button {
+    padding: 0px 14px;
+    width: fit-content;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-left: -3px;
+    user-select: none;
+    cursor: pointer;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.724);
+    transition: background-color 0.05s ease-in-out;
+}
+
+.macmenubar .button:hover {
+    background-color: rgba(255, 255, 255, 0.108);
+    transition: background-color 0.05s ease-in-out;
+}
+
+.macmenubar .appname {
+    font-weight: 700;
+}
+
+.macmenubar .icon {
+    font-size: 15px;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.418);
+    font-weight: 500;
+    padding: 0px 7px;
+    margin: 0px 1px
+}
+
+.macmenubar .icon.appleicon {
+    font-size: 15px;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.418);
+    font-weight: 500;
+    padding: 0px 15px;
+    margin: 0px 1px
+}
+
+.macmenubar .button .search {
+    background-image: url(../media/search.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.macmenubar .controlcentre {
+    background-image: url(../media/control\ centre.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.macmenubar .menubarright {
+    display: flex;
+    margin-left: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.macmenubar .menubartime {
+    margin-right: -5px;
+}
+
+.macmenupanel {
+    position: absolute;
+    top: 33px;
+    background-color: rgba(40, 40, 40, 0.794);
+    border: 0.5px solid rgba(255, 255, 255, 0.065);
+    border-radius: 10px;
+    padding: 9px 14px;
+    backdrop-filter: blur(50px);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.macmenupanel .option {
+    display: flex;
+    border-radius: 5px;
+    padding: 4px 7px;
+    margin: -4px -7px;
+}
+
+.macmenupanel .option:hover {
+    background-color: #0f8bfe;
+    user-select: none;
+    cursor: pointer;
+}
+
+.macmenupanel .option .text {
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: auto;
+}
+
+.macmenupanel .option .keys {
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+.macmenupanel .divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(235, 235, 245, 0.18);
+}
+
+.macdockshell {
+    position: absolute;
+    bottom: 7px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.macdockshell .macdock {
+    height: calc(82px - 2px);
+    padding-bottom: 2px;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0.5px solid rgba(255, 255, 255, 0.083);
+    backdrop-filter: blur(70px);
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.226);
+    display: flex;
+    align-items: end;
+}
+
+.macdock .macapp {
+    width: 73px;
+    height: calc(73px + 7px);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.macdock .macapp .macopenapp {
+    height: 5px;
+    width: 5px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.52);
+}
+
+.appwindow {
+    width: 1000px;
+    height: 500px;
+    background-color: rgba(50, 50, 50, 0.95);
+    backdrop-filter: blur(95px);
+    border: 1px solid rgba(255, 255, 255, 0.131);
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    overflow: hidden;
+    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.25);
+    min-height: 300px;
+    min-width: 500px;
+    user-select: none;
+    transition: background-color 0.1s linear, backdrop-filter 0.1s linear;
+}
+
+.handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.appwindow .trafficlights {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    top: 20px;
+    left: 20px;
+    bottom: 24px;
+    z-index: 100;
+}
+
+.appwindow .trafficlights div {
+    width: 11px;
+    height: 11px;
+    border-radius: 100px;
+    display: flex;
+    cursor: pointer;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.appwindow .trafficlights .close {
+    background-color: #ff5e57;
+    border: 1px solid #f6554d;
+}
+
+.appwindow .trafficlights:hover .close {
+    background-image: url(/media/windowclose.svg);
+}
+
+.appwindow .trafficlights .minimise {
+    background-color: #febc2e;
+    border: 1px solid #edac44;
+}
+
+.appwindow .trafficlights:hover .minimise {
+    background-image: url(/media/windowminimise.svg);
+}
+
+.appwindow .trafficlights .fullscreen {
+    background-color: #27c83f;
+    border: 1px solid #43b949;
+}
+
+.appwindow .trafficlights:hover .fullscreen {
+    background-image: url(/media/windowmaximise.svg);
+}
+
+
+.appwindow .windowsections {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.appwindow .windowsections .sidebar {
+    height: 100%;
+    min-width: 200px;
+    padding-right: 1px;
+}
+
+.appwindow .windowsections .main {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.appwindow .windowsections .topbar {
+    height: 50px;
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.appwindow .windowsections .topbar .space {
+    width: 0px;
+}
+
+.appwindow .windowsections .topbar .right {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.appwindow .windowsections .topbar .button {
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    margin: -5px;
+    border-radius: 6px;
+    user-select: none;
+    gap: 4px;
+}
+
+.appwindow .windowsections .topbar .button.dropdownitem {
+    padding: 0px 6px;
+}
+
+.appwindow .windowsections .topbar .button .dropdown {
+    font-size: 8px;
+    color: inherit;
+}
+
+.appwindow .windowsections .topbar img.button {
+    width: 16px;
+    height: 16px;
+    padding: 7px;
+}
+
+.appwindow .windowsections .topbar .button:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    cursor: pointer;
+}
+
+.appwindow .windowsections .topbar .button.disabled {
+    color: rgba(255, 255, 255, 0.09);
+}
+
+.appwindow .windowsections .topbar .button.secondary {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.appwindow .windowsections .topbar .button.tertiary {
+    color: rgba(255, 255, 255, 0.26);
+}
+
+.appwindow .windowsections .topbar .button.disabled:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+.appwindow .windowsections .topbar .text {
+    user-select: none;
+}
+
+.appwindow .windowsections .body {
+    background-color: #191c1f;
+    height: 100%;
+    width: auto;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
+}
+
+.appwindow .windowsections .sidebar .treeview {
+    width: 100%;
+    height: calc(100% - 50px);
+    margin-top: 50px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.appwindow .windowsections .sidebar .navtree {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    user-select: none;
+}
+
+.appwindow .windowsections .sidebar .navtree .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 5px;
+}
+
+.appwindow .windowsections .sidebar .navtree:not(:has(.item)) {
+    margin-bottom: 20px;
+}
+
+.appwindow .windowsections .sidebar .navtree .item {
+    display: flex;
+    gap: 10px;
+    width: calc(100% - 15px);
+    color: rgba(255, 255, 255, 0.74);
+    padding: 5px 7px;
+    margin: -5px -7px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.appwindow .windowsections .sidebar .navtree .item:last-child {
+    margin-bottom: 20px;
+}
+
+.appwindow .windowsections .sidebar .navtree .item:hover {
+    display: flex;
+    gap: 10px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.056);
+}
+
+.appwindow .windowsections .sidebar .navtree div.item.selected {
+    display: flex;
+    gap: 10px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.056);
+}
+
+.appwindow .windowsections .sidebar .navtree .item .itemicon {
+    width: 19px;
+    height: 19px;
+}
+
+.appwindow .windowsections .sidebar .navtree .item .itemtext {
+    font-weight: 500;
+    font-size: 14px;
+    text-rendering: optimizeSpeed;
+    color: inherit;
+}
+
+.appwindow .windowsections .body .item {
+    width: 80px;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.appwindow .windowsections .body .item .preview {
+    height: 70px;
+    padding: 5px;
+}
+
+.appwindow .windowsections .body .item .name {
+    font-weight: 400;
+    font-size: 14px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.alerthold {
+    position: absolute;
+    display: flex;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.alerthold .alert {
+    background-color: rgba(40, 40, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 10px;
+    backdrop-filter: blur(50px);
+    box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    gap: 10px;
+    padding: 10px;
+    padding-top: 30px;
+    user-select: none;
+}
+
+.alerthold .alert .appicon {
+    width: 80px;
+    height: 80px;
+}
+
+.alerthold .alert .title {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.alerthold .alert .body {
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: -0.35px;
+    color: rgba(255, 255, 255, 0.64);
+    text-align: center;
+}
+
+.alerthold .alert .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 210px;
+    padding: 5px 0px;
+}
+
+.alerthold .alert .buttons .button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    padding: 4px 40px;
+    font-size: 13px;
+    min-width: 50px;
+    max-width: 127px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+}
+
+.alerthold .alert .buttons .button.highlight {
+    background-color: rgba(0, 125, 249, 1);
+    border: 1px solid rgba(20, 141, 255, 1);
+}
+
+.alerthold .alert .askhold {
+    display: flex;
+    gap: 10px;
+}
+
+.alerthold .alert .askhold .check {
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(to bottom, #252627 0%, #3E3E3F 100%);
+    outline: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.alerthold .alert .askhold .ask {
+    font-size: 10px;
+    user-select: none;
+}

@@ -1,0 +1,28 @@
+{
+    "Favorites" : [
+        {"Folder": "AirDrop"},
+        {"Folder": "Recents"},
+        {"Folder": "Applications"},
+        {"Folder": "Desktop"},
+        {"Folder": "Documents"},
+        {"Folder": "Downloads"}
+    ],
+    
+    "iCloud" : [
+        {"Folder": "iCloud Drive"}
+    ],
+
+    "Locations" : [
+        {"Folder": "MacOS Github"}
+    ],
+
+    "Tags" : [
+        "Red",
+        "Orange",
+        "Yellow",
+        "Green",
+        "Blue",
+        "Purple",
+        "Grey"
+    ]
+}

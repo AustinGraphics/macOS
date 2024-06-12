@@ -1,0 +1,77 @@
+{
+    "Menubar": {
+        "Maps": [
+            {"About Maps": ""},
+            {"Divider": "Divider"},
+            {"Preferences...": ""},
+            {"Divider": "Divider"},
+            {"Services": ""},
+            {"Hide Maps": ""},
+            {"Hide Others": ""},
+            {"Show All": ""},
+            {"Quit Maps": ""}
+        ],
+        "File": [
+            {"New Window": ""},
+            {"Open Recent": ""},
+            {"Close Window": ""},
+            {"Divider": "Divider"},
+            {"Print...": ""},
+            {"Divider": "Divider"},
+            {"Add Bookmark": ""},
+            {"Add to Favorites": ""}
+        ],
+        "Edit": [
+            {"Undo": ""},
+            {"Redo": ""},
+            {"Divider": "Divider"},
+            {"Cut": ""},
+            {"Copy": ""},
+            {"Paste": ""},
+            {"Delete": ""},
+            {"Select All": ""},
+            {"Divider": "Divider"},
+            {"Find": ""}
+        ],
+        "View": [
+            {"Show Tab Bar": ""},
+            {"Show All Tabs": ""},
+            {"Show Map Controls": ""},
+            {"Divider": "Divider"},
+            {"Show Sidebar": ""},
+            {"Show Traffic": ""},
+            {"Show 3D Map": ""},
+            {"Divider": "Divider"},
+            {"Enter Full Screen": ""}
+        ],
+        "History": [
+            {"Show All History": ""},
+            {"Clear Recent History...": ""}
+        ],
+        "Bookmarks": [
+            {"Show All Bookmarks": ""},
+            {"Add Bookmark...": ""},
+            {"Edit Bookmarks...": ""}
+        ],
+        "Window": [
+            {"Minimize": ""},
+            {"Zoom": ""},
+            {"Move Window to Left Side of Screen": ""},
+            {"Move Window to Right Side of Screen": ""},
+            {"Tile Window to Left of Screen": ""},
+            {"Tile Window to Right of Screen": ""},
+            {"Divider": "Divider"},
+            {"Show Previous Tab": ""},
+            {"Show Next Tab": ""},
+            {"Move Tab to New Window": ""},
+            {"Merge All Windows": ""},
+            {"Divider": "Divider"},
+            {"Bring All to Front": ""}
+        ],
+        "Help": [
+            {"Maps Help": ""},
+            {"Divider": "Divider"},
+            {"Send Feedback": ""}
+        ]
+    }
+}

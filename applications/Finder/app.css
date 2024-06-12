@@ -1,0 +1,18 @@
+.appwindow.finder {
+    min-width: 740px;
+}
+
+.appwindow.finder .windowsections .topbar {
+    background-color: #191c1fde;
+    border-bottom: 1px solid #131617;
+}
+
+.appwindow.finder .windowsections .topbar .right {
+    gap: 20px;
+}
+
+.appwindow.finder .windowsections .body {
+    overflow: scroll;
+    height: calc(100% - 50px);
+    background-color: #191c1f98;
+}
