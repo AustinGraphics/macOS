@@ -34,12 +34,24 @@
     src: url(../fonts/SF-Pro-Text-Thin.otf);
 }
 
+@font-face {
+    font-family: SFmono;
+    font-weight: 600;
+    src: url(../fonts/SFMonoBold.otf);
+}
+
+@font-face {
+    font-family: SFmono;
+    font-weight: 400;
+    src: url(../fonts/SFMonoLight.otf);
+}
+
 ::-webkit-scrollbar {
-    width: 2px !important;
+    width: 2px ;
 }
 
 :hover> ::-webkit-scrollbar {
-    width: 7px !important;
+    width: 7px ;
 }
 
 ::-webkit-scrollbar-track {
@@ -294,6 +306,42 @@ body {
     cursor: se-resize;
 }
 
+.edge {
+    position: absolute;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.edge.top {
+    width: calc(100% - 20px);
+    height: 10px;
+    left: 10px;
+    cursor: n-resize;
+}
+
+.edge.bottom {
+    width: calc(100% - 20px);
+    height: 10px;
+    bottom: 0px;
+    left: 10px;
+    cursor: s-resize;
+}
+
+.edge.left {
+    width: 10px;
+    height: calc(100% - 20px);
+    top: 10px;
+    cursor: w-resize;
+}
+
+.edge.right {
+    width: 10px;
+    height: calc(100% - 20px);
+    right: 0px;
+    top: 10px;
+    cursor: e-resize;
+}
+
 .appwindow .trafficlights {
     width: fit-content;
     height: fit-content;
@@ -454,6 +502,7 @@ body {
     width: 100%;
     height: calc(100% - 50px);
     margin-top: 50px;
+    padding-top: 5px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -518,6 +567,12 @@ body {
     font-size: 14px;
     text-rendering: optimizeSpeed;
     color: inherit;
+}
+
+.appwindow .windowsections .itemlistbar {
+    height: 100%;
+    min-width: 300px;
+    padding-right: 1px;
 }
 
 .appwindow .windowsections .body .item {

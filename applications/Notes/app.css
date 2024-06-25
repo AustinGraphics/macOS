@@ -1,0 +1,259 @@
+.appwindow.notes {
+    min-width: 905px;
+}
+
+.appwindow.notes .windowsections .sidebar {
+    border-right: 1px solid #0000003b;
+}
+
+.appwindow.notes .windowsections .itemlistbar {
+    background-color: #191c1f3a;
+    border-right: 1px solid #0000003b;
+}
+
+.appwindow.notes .windowsections .itemlistbar .topbar {
+    border-bottom: transparent;
+}
+
+.appwindow.notes .windowsections .topbar .right {
+    gap: 20px;
+}
+
+.appwindow.notes .windowsections .main .topbar .middle {
+    width: min-content;
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.appwindow.notes .windowsections .main {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar {
+    position: absolute;
+    background-color: rgb(59, 54, 67);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.131);
+    border-radius: 12px;
+    padding: 9px 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.32);
+    top: 50px;
+    width: 160px;
+    font-family: SFpro !important;
+    display: none;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .popuparrow {
+    position: absolute;
+    top: -16px;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-row {
+    flex-direction: column;
+    align-items: center;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group {
+    margin-left: 0px;
+    width: min-content;
+    border: none;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--text-tools {
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button::before {
+    background-image: none;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button {
+    align-items: start;
+    display: flex;
+    width: 160px;
+    height: 28px;
+    margin: 2px 0px;
+    padding: 0px 30px;
+    align-items: center;
+    max-width: 999px;
+    cursor: default;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button:hover {
+    background-color: #e9ab2c !important;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button.trix-active {
+    background-color: transparent;
+    background-image: url(./icon.tick.svg);
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button.trix-button--icon-heading-1 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button.trix-button--icon-heading-2 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--block-tools .trix-button.trix-button--icon-heading-3 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button-group.trix-button-group--text-tools .trix-button {
+    width: 30px !important;
+    height: 30px !important;
+    text-indent: -9999px !important;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button.trix-button--icon-mono {
+    font-family: sfmono;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button.trix-button--icon-body {
+    font-weight: 400;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button {
+    border: none;
+    padding: 0px;
+    border-radius: 5px;
+    text-indent: 0px;
+    width: max-content;
+    color: rgba(255, 255, 255, 0.878) !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button--icon::before {
+   opacity: 0.9;
+   background-size: 45%;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button--icon-bold::before {
+    background-image: url(./icon.bold.svg);
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button--icon-italic::before {
+    background-image: url(./icon.italic.svg);
+    background-size: 40%;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button--icon-strike::before {
+    background-image: url(./icon.strikethrough.svg);
+    background-size: 55%;
+}
+
+.appwindow.notes .windowsections .main trix-toolbar .trix-button.trix-active {
+    background-color: #e9ab2c;
+}
+
+.appwindow.notes .windowsections .main trix-editor h1 {
+    font-weight: 800 !important;
+}
+
+.appwindow.notes .windowsections .main trix-editor h2 {
+    font-weight: 700 !important;
+}
+
+.appwindow.notes .windowsections .main trix-editor h3 {
+    font-weight: 600 !important;
+}
+
+.appwindow.notes .windowsections .main .body {
+    height: 100%;
+    width: auto;
+    background-color: #191c1f98;
+    font-weight: 400;
+    font-size: 15px;
+    overflow-y: scroll;
+    user-select: text;
+    padding: 25px;
+    outline: none;
+    border: none;
+    display: unset;
+    border-radius: 0px;
+}
+
+.appwindow.notes .windowsections .main .body * {
+    font-weight: 400;
+}
+
+.appwindow.notes .windowsections .main .body strong {
+    font-weight: 600;
+}
+
+.appwindow.notes .windowsections .main .body strong * {
+    font-weight: 600;
+}
+
+.appwindow.notes .windowsections .main .body pre {
+    font-family: SFmono;
+    font-weight: 400;
+}
+
+.appwindow.notes .windowsections .main .body pre strong {
+    font-family: SFmono;
+    font-weight: 600;
+}
+
+.appwindow.notes .windowsections .main .body figure {
+    max-width: 500px;
+    margin: 0px;
+}
+
+.appwindow.notes .windowsections .main .body figure img {
+    border-radius: 5px;
+}
+
+trix-editor [data-trix-mutable].attachment img {
+    box-shadow: inset 0px 0px 100px black;
+    filter: saturate(0.8) contrast(0.6) brightness(1.2);
+}
+
+.appwindow.notes .windowsections .main .body figure progress {
+    display: none;
+}
+
+.appwindow.notes .windowsections .main .body figure figcaption {
+    display: none;
+}
+
+.appwindow.notes .windowsections .main .body figure div.attachment__toolbar {
+    display: none;
+}
+
+.appwindow.notes ::-webkit-scrollbar {
+    width: 2px ;
+}
+
+.appwindow.notes .windowsections .main .topbar {
+    min-height: 50px;
+    gap: 20px;
+    border-bottom: transparent;
+    background-color: #191c1f3a;
+}

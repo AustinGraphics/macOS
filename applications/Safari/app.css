@@ -46,6 +46,10 @@
     overflow: hidden;
 }
 
+.appwindow.safari .windowsections .main .topbar .right {
+    margin-left: 0px;
+    gap: 20px;
+}
 
 .appwindow.safari .windowsections .main .topbar .middle .safarisearchbar[contenteditable]:focus {
     border-color: #007aff;
@@ -66,11 +70,6 @@
 
 .appwindow.safari .windowsections .main .topbar .middle .safarisearchbar .text {
     text-wrap: nowrap;
-}
-
-.appwindow.safari .windowsections .main .topbar .right {
-    margin-left: 0px;
-    gap: 20px;
 }
 
 .appwindow.safari .windowsections .main .body {

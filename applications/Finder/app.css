@@ -16,3 +16,8 @@
     height: calc(100% - 50px);
     background-color: #191c1f98;
 }
+
+.appwindow.finder .windowsections .body .item.selected {
+    background-color: rgba(255, 255, 255, 0.057);
+    border-radius: 4px;
+}

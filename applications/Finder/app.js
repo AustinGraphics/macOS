@@ -163,10 +163,20 @@
             <div class="name">${name}</div>
             `;
             }
+
+            window.addEventListener('click', function(e) {
+                if (itemDiv.contains(e.target)) {
+                    appwindow.querySelectorAll('.item').forEach(item => {
+                        item.classList.remove('selected');
+                    })
+                    itemDiv.classList.add('selected');
+                  }
+            });
+
             const fileExtensionPattern = /\.[0-9a-z]+$/i;
 
             if (!fileExtensionPattern.test(name)) {
-                itemDiv.addEventListener('click', () => fetchDirectoryContents(itemDirectory + '/' + name));
+                itemDiv.addEventListener('dblclick', () => fetchDirectoryContents(itemDirectory + '/' + name));
             }
             if (cancel == false) {
                 body.appendChild(itemDiv);

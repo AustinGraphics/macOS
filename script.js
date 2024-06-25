@@ -95,7 +95,7 @@ function loadPanel(item, type) {
                     if (keys) {
                         const keysDiv = document.createElement('div');
                         keysDiv.className = 'keys';
-                        keysDiv.textContent = keys;
+                        keysDiv.textContent = Array.isArray(keys) ? '􀆊' : keys;
                         div.appendChild(keysDiv);
                     }
                 }
@@ -155,6 +155,107 @@ function loadPanel(item, type) {
 
 createMacMenuBar();
 
+// app opening
+function openApp(name) {
+    fetch("./applications/" + name + "/app.html")
+        .then((response) => {
+            if (!response.ok) {
+                app.addEventListener('click', function () {
+                    alert(app.id, 'Broken App', 'This application does not have a destination .html file to load as the main window.', 'Continue', 'dog');
+                });
+            }
+            return response.text();
+        })
+        .then((data) => {
+            if (!data.includes('<!DOCTYPE html>')) {
+                loadWindow(name, data);
+            }
+        })
+        .catch()
+}
+
+function loadWindow(name, data) {
+    increaseApplicationCount(name);
+
+    const body = document.getElementById('body');
+    const appwindow = document.createRange().createContextualFragment(data).firstElementChild;
+
+    // Load and append the specific CSS file for the app
+    const style = document.createElement("link");
+    style.rel = "stylesheet";
+    style.href = "./applications/" + name + "/app.css";
+    appwindow.appendChild(style);
+
+    appwindow.addEventListener('mousedown', (e) => {
+        if (appwindow.style.zIndex !== windows.length.toString()) {
+            bringToFront(appwindow);
+        }
+    });
+
+    bringToFront(appwindow);
+
+    // Add drag functionality to the new window
+    addDragFunctionality(appwindow);
+
+    appwindow.querySelector('.close').addEventListener('click', function () {
+        if (lowerApplicationCount(name) == 1) {
+            ((document.querySelector('.macdock')).querySelector(`#${name}`).querySelector('.macopenapp')).remove();
+        };
+        appwindow.remove();
+    });
+    appwindow.querySelector('.minimise').addEventListener('click', function () {
+    });
+    appwindow.querySelector('.fullscreen').addEventListener('click', function () {
+        const duration = 500; // Duration in milliseconds
+        const startTime = performance.now();
+
+        const initialStyles = window.getComputedStyle(appwindow);
+        const initialLeft = parseInt(initialStyles.left, 10);
+        const initialTop = parseInt(initialStyles.top, 10);
+        const initialWidth = parseInt(initialStyles.width, 10);
+        const initialHeight = parseInt(initialStyles.height, 10);
+
+        const targetLeft = 0;
+        const targetTop = 30;
+        const targetWidth = document.body.clientWidth - 2;
+        const targetHeight = document.body.clientHeight - 124;
+
+        // Ease-out expo function
+        function easeOutQuint(t) {
+            return 1 - Math.pow(1 - t, 30);
+        }
+
+        function animate(time) {
+            const elapsedTime = time - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const easedProgress = easeOutQuint(progress);
+
+            const currentLeft = initialLeft + (targetLeft - initialLeft) * easedProgress;
+            const currentTop = initialTop + (targetTop - initialTop) * easedProgress;
+            const currentWidth = initialWidth + (targetWidth - initialWidth) * easedProgress;
+            const currentHeight = initialHeight + (targetHeight - initialHeight) * easedProgress;
+
+            appwindow.style.left = currentLeft + 'px';
+            appwindow.style.top = currentTop + 'px';
+            appwindow.style.width = currentWidth + 'px';
+            appwindow.style.height = currentHeight + 'px';
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        requestAnimationFrame(animate);
+    });
+    body.appendChild(appwindow);
+    windows = document.querySelectorAll('.appwindow'); // update the windows list
+
+    // Load and append the specific JavaScript file for the app
+    const script = document.createElement("script");
+    script.src = "./applications/" + name + "/app.js";
+    appwindow.appendChild(script);
+}
+
 // dock things
 var applicationWindowLists = []
 
@@ -197,6 +298,7 @@ function lowerApplicationCount(appName) {
     console.log(`item not found to lower: ${appName}`);
 }
 
+//dock loading
 fetch("./static/dock_default.json")
     .then((response) => response.json())
     .then((data) => {
@@ -246,52 +348,12 @@ fetch("./static/dock_default.json")
                         if (!data.includes('<!DOCTYPE html>')) {
 
                             app.addEventListener('click', function () {
-                                if (!app.querySelector('.macopenapp') && application != 'Launchpad' ) {
+                                if (!app.querySelector('.macopenapp') && application != 'Launchpad') {
                                     const openapp = document.createElement("div");
                                     openapp.classList.add("macopenapp");
                                     app.appendChild(openapp);
                                 }
-
-                                console.log(application);
-                                increaseApplicationCount(application);
-
-                                const body = document.getElementById('body');
-                                const appwindow = document.createRange().createContextualFragment(data).firstElementChild;
-
-                                appwindow.addEventListener('mousedown', (e) => {
-                                    if (appwindow.style.zIndex !== windows.length.toString()) {
-                                        bringToFront(appwindow);
-                                    }
-                                });
-
-                                bringToFront(appwindow);
-
-                                // Add drag functionality to the new window
-                                addDragFunctionality(appwindow);
-
-                                appwindow.querySelector('.close').addEventListener('click', function () {
-                                    if (lowerApplicationCount(application) == 1) {
-                                        (app.querySelector('.macopenapp')).remove();
-                                    };
-                                    appwindow.remove();
-                                });
-                                appwindow.querySelector('.minimise').addEventListener('click', function () {
-                                });
-                                appwindow.querySelector('.fullscreen').addEventListener('click', function () {
-                                });
-                                body.appendChild(appwindow);
-                                windows = document.querySelectorAll('.appwindow'); // update the windows list
-
-                                // Load and append the specific JavaScript file for the app
-                                const script = document.createElement("script");
-                                script.src = "./applications/" + application + "/app.js";
-                                appwindow.appendChild(script);
-
-                                // Load and append the specific CSS file for the app
-                                const style = document.createElement("link");
-                                style.rel = "stylesheet";
-                                style.href = "./applications/" + application + "/app.css";
-                                appwindow.appendChild(style);
+                                loadWindow(application, data);
                             });
                         }
                     })
@@ -400,8 +462,9 @@ function bringToFront(selectedWindow) {
 
 function addDragFunctionality(resizable) {
     const handles = resizable.querySelectorAll('.handle');
+    const edgeHandles = resizable.querySelectorAll('.edge');
     let startX, startY, startWidth, startHeight, startTop, startLeft;
-    let cornerTarget = '';
+    let windowTarget = '';
 
     function handleMouseDown(e) {
         startX = e.clientX;
@@ -410,7 +473,7 @@ function addDragFunctionality(resizable) {
         startHeight = resizable.offsetHeight;
         startTop = parseInt(window.getComputedStyle(resizable).getPropertyValue('top'));
         startLeft = parseInt(window.getComputedStyle(resizable).getPropertyValue('left'));
-        cornerTarget = e.target.classList[1];
+        windowTarget = e.target.classList[1];
 
         let iframes = document.getElementsByTagName('iframe');
         Array.from(iframes).forEach(iframe => {
@@ -427,7 +490,7 @@ function addDragFunctionality(resizable) {
         let minHeight = parseInt(window.getComputedStyle(resizable).getPropertyValue('min-height'));
         let minWidth = parseInt(window.getComputedStyle(resizable).getPropertyValue('min-width'));
 
-        switch (cornerTarget) {
+        switch (windowTarget) {
             case 'top-left':
                 if (startWidth - deltaX >= minWidth) {
                     resizable.style.width = startWidth - deltaX + 'px';
@@ -486,13 +549,46 @@ function addDragFunctionality(resizable) {
                     resizable.style.height = minHeight + 'px';
                 }
                 break;
+            case 'top':
+                if (startHeight - deltaY >= minHeight) {
+                    resizable.style.height = startHeight - deltaY + 'px';
+                    resizable.style.top = startTop + deltaY + 'px';
+                } else {
+                    resizable.style.top = startTop + (startHeight - minHeight) + 'px';
+                    resizable.style.height = minHeight + 'px';
+                }
+                resizable.style.left = startLeft + 'px';
+                break;
+            case 'right':
+                if (startWidth + deltaX >= minWidth) {
+                    resizable.style.width = startWidth + deltaX + 'px';
+                } else {
+                    resizable.style.width = minWidth + 'px';
+                }
+                break;
+            case 'bottom':
+                if (startHeight + deltaY >= minHeight) {
+                    resizable.style.height = startHeight + deltaY + 'px';
+                } else {
+                    resizable.style.height = minHeight + 'px';
+                }
+                break;
+            case 'left':
+                if (startWidth - deltaX >= minWidth) {
+                    resizable.style.width = startWidth - deltaX + 'px';
+                    resizable.style.left = startLeft + deltaX + 'px';
+                } else {
+                    resizable.style.width = minWidth + 'px';
+                    resizable.style.left = startLeft + (startWidth - minWidth) + 'px';
+                }
+                break;
         }
     }
 
     function handleMouseUp() {
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
-        cornerTarget = '';
+        windowTarget = '';
 
         let iframes = document.getElementsByTagName('iframe');
         Array.from(iframes).forEach(iframe => {
@@ -501,6 +597,10 @@ function addDragFunctionality(resizable) {
     }
 
     handles.forEach(handle => {
+        handle.addEventListener('mousedown', handleMouseDown);
+    });
+
+    edgeHandles.forEach(handle => {
         handle.addEventListener('mousedown', handleMouseDown);
     });
 

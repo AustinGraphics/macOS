@@ -1,0 +1,63 @@
+<div class="appwindow notes">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+    <div class="handle top-left"></div>
+    <div class="handle top-right"></div>
+    <div class="handle bottom-left"></div>
+    <div class="handle bottom-right"></div>
+    <div class="edge top"></div>
+    <div class="edge right"></div>
+    <div class="edge bottom"></div>
+    <div class="edge left"></div>
+    <div class="trafficlights">
+        <div class="close"></div>
+        <div class="minimise"></div>
+        <div class="fullscreen"></div>
+    </div>
+    <div class="windowsections">
+        <div class="sidebar">
+            <div class="treeview">
+                <div class="navtree">
+                    <div class="item">
+                        <img class="itemicon" src="./applications/Notes/icon.quicknotes.svg">
+                        <div class="itemtext">Quick Notes</div>
+                    </div>
+                </div>
+                <div class="navtree">
+                    <div class="title">On My Mac</div>
+                    <div class="item">
+                        <img class="itemicon" src="./applications/Notes/icon.folder.svg">
+                        <div class="itemtext">Notes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="itemlistbar">
+            <div class="topbar">
+                <div class="button">􀋲</div>
+                <div class="button tertiary">􀇷</div>
+                <div class="right">
+                    <div class="button secondary">􀈑</div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="button secondary">􀈎</div>
+                <div class="middle">
+                    <div class="button secondary textcontrol">􀅑</div>
+                    <div class="button secondary">􀁢</div>
+                    <div class="button disabled">􀏣</div>
+                    <div class="button secondary dropdownitem">􀏫<div class="dropdown">􀆈</div></div>
+                </div>
+                <div class="right">
+                    <div class="button disabled dropdownitem">􀎠<div class="dropdown">􀆈</div></div>
+                    <div class="button disabled">􀉯</div>
+                    <div class="button disabled">􀈂</div>
+                    <div class="button secondary">􀊫</div>
+                </div>
+            </div>
+            <trix-editor class="body"></trix-editor>
+        </div>
+    </div>
+</div>

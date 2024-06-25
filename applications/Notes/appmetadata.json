@@ -1,0 +1,121 @@
+{
+    "Menubar": {
+        "Notes": [
+            {"About Notes": ""},
+            {"Divider": "Divider"},
+            {"Preferences": ""},
+            {"Divider": "Divider"},
+            {"Add Account": ""},
+            {"Divider": "Divider"},
+            {"Services": ""},
+            {"Divider": "Divider"},
+            {"Hide Notes": ""},
+            {"Hide Others": ""},
+            {"Show All": ""},
+            {"Quit Notes": ""}
+        ],
+        "File": [
+            {"New Note": ""},
+            {"New Folder": ""},
+            {"New Smart Folder": ""},
+            {"Divider": "Divider"},
+            {"Import to Notes": ""},
+            {"Export as PDF": ""},
+            {"Divider": "Divider"},
+            {"Move to": ""},
+            {"Delete Note": ""},
+            {"Divider": "Divider"},
+            {"Lock Note": ""},
+            {"Remove Lock": ""},
+            {"Divider": "Divider"},
+            {"Print": ""}
+        ],
+        "Edit": [
+            {"Undo": ""},
+            {"Redo": ""},
+            {"Divider": "Divider"},
+            {"Cut": ""},
+            {"Copy": ""},
+            {"Paste": ""},
+            {"Paste and Match Style": ""},
+            {"Delete": ""},
+            {"Select All": ""},
+            {"Divider": "Divider"},
+            {"Find": ""},
+            {"Find Next": ""},
+            {"Find Previous": ""},
+            {"Use Selection for Find": ""},
+            {"Jump to Selection": ""},
+            {"Divider": "Divider"},
+            {"Start Dictation": ""},
+            {"Emoji & Symbols": ""}
+        ],
+        "Format": [
+            {"Font": [
+                {"Show Fonts": ""},
+                {"Bold": ""},
+                {"Italic": ""},
+                {"Underline": ""},
+                {"Strikethrough": ""},
+                {"Divider": "Divider"},
+                {"Bigger": ""},
+                {"Smaller": ""}
+            ]},
+            {"Divider": "Divider"},
+            {"Align Left": ""},
+            {"Center": ""},
+            {"Justify": ""},
+            {"Align Right": ""},
+            {"Divider": "Divider"},
+            {"Indent": ""},
+            {"Outdent": ""},
+            {"Divider": "Divider"},
+            {"Lists": [
+                {"Bullet List": ""},
+                {"Numbered List": ""},
+                {"Checklist": ""}
+            ]},
+            {"Tables": [
+                {"Insert Table": ""},
+                {"Add Row Above": ""},
+                {"Add Row Below": ""},
+                {"Add Column Before": ""},
+                {"Add Column After": ""},
+                {"Delete Row": ""},
+                {"Delete Column": ""},
+                {"Delete Table": ""}
+            ]}
+        ],
+        "View": [
+            {"Show Folders": ""},
+            {"Show Note List": ""},
+            {"Divider": "Divider"},
+            {"Sort Notes By": [
+                {"Date Created": ""},
+                {"Date Edited": ""},
+                {"Title": ""}
+            ]},
+            {"Divider": "Divider"},
+            {"Enter Full Screen": ""},
+            {"Exit Full Screen": ""}
+        ],
+        "Window": [
+            {"Minimize": ""},
+            {"Zoom": ""},
+            {"Divider": "Divider"},
+            {"Show Previous Tab": ""},
+            {"Show Next Tab": ""},
+            {"Move Tab to New Window": ""},
+            {"Merge All Windows": ""},
+            {"Divider": "Divider"},
+            {"Bring All to Front": ""}
+        ],
+        "Help": [
+            {"Search": ""},
+            {"Divider": "Divider"},
+            {"Notes Help": ""},
+            {"Divider": "Divider"},
+            {"Send Feedback": ""}
+        ]
+    }
+}
