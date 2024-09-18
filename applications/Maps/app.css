@@ -35,9 +35,9 @@
 }
 
 .appwindow.maps .windowsections .main .body iframe {
-    min-width: calc(100% + 510px);
-    height: 100%;
-    margin-top: -50px;
+    min-width: calc(100% + 0px);
+    height: calc(100% - 50px);
+    margin-top: 0px;
 }
 
 .appwindow.maps .windowsections .main .body .applemapslogo {
@@ -50,5 +50,5 @@
     background-repeat: no-repeat;
     bottom: 10px;
     left: 10px;
-    opacity: 0.8;
+    opacity: 0;
 }

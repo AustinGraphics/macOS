@@ -354,6 +354,10 @@ body {
     z-index: 100;
 }
 
+.appwindow .trafficlights .disabled {
+    filter: saturate(0) brightness(0.7);
+}
+
 .appwindow .trafficlights div {
     width: 11px;
     height: 11px;
