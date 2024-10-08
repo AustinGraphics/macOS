@@ -1,16 +1,17 @@
 [
-    {"About this mac" : ""},
+    {"About This Mac" : ""},
     {"Divider" : "Divider"},
-    {"System Preferences..." : ""},
-    {"App Store..." : ""},
+    {"System Settings..." : ""},
+    {"App Store" : ""},
+    {"Divider" : "Divider"},
     {"Recent Items" : "􀆊"},
     {"Divider" : "Divider"},
-    {"Force Quit..." : "􀆕􀆝􀆔􀆧"},
+    {"Force Quit..." : "⌥⇧⌘⎋"},
     {"Divider" : "Divider"},
     {"Sleep" : ""},
     {"Restart..." : ""},
     {"Shut Down..." : ""},
     {"Divider" : "Divider"},
-    {"Lock Screen" : "􀆍􀆔Q"},
-    {"Log Out User..." : "􀆝􀆔Q"}
+    {"Lock Screen" : "⌃⌘Q"},
+    {"Log Out User..." : "⇧⌘Q"}
 ]

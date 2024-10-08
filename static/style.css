@@ -91,8 +91,8 @@ body {
 
 .macmenubar {
     width: calc(100vw - 15px);
-    height: 30px;
-    background: rgba(0, 0, 0, 0.141);
+    height: 25px;
+    background: rgba(98, 98, 98, 0.33);
     backdrop-filter: blur(200px);
     padding: 0px 10px 0px 5px;
     display: flex;
@@ -104,8 +104,8 @@ body {
 .macmenubar .button {
     padding: 0px 14px;
     width: fit-content;
-    height: 30px;
-    border-radius: 7px;
+    height: 25px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -172,15 +172,15 @@ body {
 .macmenupanel {
     position: absolute;
     top: 33px;
-    background-color: rgba(40, 40, 40, 0.794);
-    border: 0.5px solid rgba(255, 255, 255, 0.065);
-    border-radius: 10px;
+    background-color: rgba(56, 56, 56, 0.37);
+    border: 0.5px solid rgba(255, 255, 255, 0.307);
+    border-radius: 8px;
     padding: 9px 14px;
     backdrop-filter: blur(50px);
     width: 250px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     z-index: 10;
 }
 
@@ -192,7 +192,7 @@ body {
 }
 
 .macmenupanel .option:hover {
-    background-color: #0f8bfe;
+    background-color: #1656BC;
     user-select: none;
     cursor: pointer;
 }
@@ -207,7 +207,7 @@ body {
     font-weight: 400;
     font-size: 13px;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.705);
+    color: rgba(255, 255, 255, 0.273);
 }
 
 .macmenupanel .divider {

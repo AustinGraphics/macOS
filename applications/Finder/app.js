@@ -1,8 +1,8 @@
 (function () {
     const appwindow = document.querySelector('.appwindow:last-child');
-
+ 
     var directoryHistory = [];
-
+ 
     // Mapping of item names to their corresponding icon paths
     var iconMapping = {
         "AirDrop": "./applications/Finder/icon.airdrop.svg",
@@ -21,10 +21,10 @@
         "Purple": "./applications/Finder/icon.purpletag.svg",
         "Grey": "./applications/Finder/icon.greytag.svg"
     };
-
+ 
     var defaultIcon = "./applications/Finder/preview.folder.png";
     var unknownIcon = "./applications/Finder/preview.unknown.png";
-
+ 
     // Mapping of file extensions to their corresponding icon paths
     var fileIconMapping = {
         '.txt': './applications/Finder/preview.text.png',
@@ -38,7 +38,7 @@
         '.svg': './applications/Finder/preview.svg.png',
         '.ico': './applications/Finder/preview.ico.png'
     };
-
+ 
     // Mapping of specific files in specific directories to their corresponding icon paths
     var specificFileIcons = {
         'http://127.0.0.1:5500/MacOS/Applications': './applications/Finder/preview.appstorefolder.png',
@@ -47,23 +47,23 @@
         'http://127.0.0.1:5500/MacOS/Documents': './applications/Finder/preview.documents.png'
         // Add more specific file icons here as needed
     };
-
+ 
     var directoryRedirect = {
         'http://127.0.0.1:5500/MacOS/Applications': 'http://127.0.0.1:5500/applications'
     };
-
+ 
     // Function to get the icon based on file extension and specific directory
     function getFileIcon(name, directory) {
         const specificPath = `${directory}/${name}`;
         if (specificFileIcons[specificPath]) {
             return specificFileIcons[specificPath];
         }
-
+ 
         const extension = Object.keys(fileIconMapping).find(ext => name.endsWith(ext));
         const fileExtensionPattern = /\.[0-9a-z]+$/i;
         return fileIconMapping[extension] || (!fileExtensionPattern.test(name) ? defaultIcon : unknownIcon);
     }
-
+ 
     function getRedirectedDirectory(directory) {
         if (directoryRedirect.hasOwnProperty(directory)) {
             console.log(`Redirecting ${directory} to ${directoryRedirect[directory]}`);
@@ -73,20 +73,20 @@
             return directory;
         }
     }
-
+ 
     // Fetch and render sidebar
     fetch('./applications/Finder/sidebar.json')
         .then(response => response.json())
         .then(data => renderSidebar(data))
         .catch(error => console.error('Error loading sidebar data:', error));
-
+ 
     function renderSidebar(data) {
         const treeview = appwindow.querySelector('.treeview');
         for (const category in data) {
             const navtree = document.createElement('div');
             navtree.className = 'navtree';
             navtree.innerHTML = `<div class="title">${category}</div>`;
-
+ 
             data[category].forEach(item => {
                 const itemName = typeof item === 'string' ? item : item.Folder;
                 const itemDiv = document.createElement('div');
@@ -98,14 +98,14 @@
                 itemDiv.addEventListener('click', () => fetchDirectoryContents(itemName));
                 navtree.appendChild(itemDiv);
             });
-
+ 
             treeview.appendChild(navtree);
         }
-
+ 
         // Set Downloads as the default view
         fetchDirectoryContents('Downloads');
     }
-
+ 
     function fetchDirectoryContents(directory) {
         if (directory == 'MacOS Github') {
             directory = 'http://127.0.0.1:5500';
@@ -115,16 +115,16 @@
         if (directoryHistory.length === 0 || directoryHistory[directoryHistory.length - 1] !== (directory === 'http://127.0.0.1:5500' ? '/MacOS Github' : directory.replace('http://127.0.0.1:5500', ''))) {
             directoryHistory.push(directory === 'http://127.0.0.1:5500' ? '/MacOS Github' : directory.replace('http://127.0.0.1:5500', ''));
         }
-
+ 
         // Apply redirection
         var realDirectory = directory;
         directory = getRedirectedDirectory(directory);
-
+ 
         fetch(directory.replace(' ', '%20'))
             .then(response => response.text())
             .then(contents => renderDirectoryContents(contents, directory.replace(' ', '%20'), realDirectory))
             .catch(error => console.error('Error fetching item contents:', error));
-
+ 
         if (directory == 'http://127.0.0.1:5500') {
             appwindow.querySelector('.appwindow.finder .topbar .text').textContent = 'MacOS Github';
         } else {
@@ -133,7 +133,7 @@
             appwindow.querySelector('.appwindow.finder .topbar .text').textContent = endingDirectory.replace('_', ' ');
         }
     }
-
+ 
     function renderDirectoryContents(contents, itemDirectory, realDirectory) {
         const body = appwindow.querySelector('.appwindow.finder .body');
         body.innerHTML = ''; // Clear existing contents
@@ -142,7 +142,7 @@
         const items = Array.from(doc.querySelectorAll('#files .name'))
             .map(item => item.textContent.trim())
             .filter(name => name !== '..'); // Ignore the '..' entry
-
+ 
         console.log(itemDirectory);
         console.log(realDirectory);
         items.forEach(name => {
@@ -163,27 +163,17 @@
             <div class="name">${name}</div>
             `;
             }
-
-            window.addEventListener('click', function(e) {
-                if (itemDiv.contains(e.target)) {
-                    appwindow.querySelectorAll('.item').forEach(item => {
-                        item.classList.remove('selected');
-                    })
-                    itemDiv.classList.add('selected');
-                  }
-            });
-
             const fileExtensionPattern = /\.[0-9a-z]+$/i;
-
+ 
             if (!fileExtensionPattern.test(name)) {
-                itemDiv.addEventListener('dblclick', () => fetchDirectoryContents(itemDirectory + '/' + name));
+                itemDiv.addEventListener('click', () => fetchDirectoryContents(itemDirectory + '/' + name));
             }
             if (cancel == false) {
                 body.appendChild(itemDiv);
             }
         });
-
+ 
         console.log('Fetched from ' + itemDirectory + ' :', items);
     }
-
+ 
 })();
