@@ -271,7 +271,7 @@ body {
     min-height: 300px;
     min-width: 500px;
     user-select: none;
-    transition: background-color 0.1s linear, backdrop-filter 0.1s linear;
+    transition: background-color 0.1s linear, backdrop-filter 0.1s linear, box-shadow 0.1s linear;
 }
 
 .handle {

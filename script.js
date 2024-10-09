@@ -206,7 +206,7 @@ function loadWindow(name, data) {
     appwindow.querySelector('.minimise').addEventListener('click', function () {
     });
     appwindow.querySelector('.fullscreen').addEventListener('click', function () {
-        const duration = 500; // Duration in milliseconds
+        const duration = 1000; // Duration in milliseconds
         const startTime = performance.now();
 
         const initialStyles = window.getComputedStyle(appwindow);
@@ -216,9 +216,9 @@ function loadWindow(name, data) {
         const initialHeight = parseInt(initialStyles.height, 10);
 
         const targetLeft = 0;
-        const targetTop = 30;
+        const targetTop = 25;
         const targetWidth = document.body.clientWidth - 2;
-        const targetHeight = document.body.clientHeight - 124;
+        const targetHeight = document.body.clientHeight - 119;
 
         // Ease-out expo function
         function easeOutQuint(t) {
@@ -432,7 +432,8 @@ windows.forEach(window => {
 function bringToFront(selectedWindow) {
     const maxZIndex = windows.length;
     selectedWindow.style.backdropFilter = "blur(95px)";
-    selectedWindow.style.backgroundColor = "rgba(50, 50, 50, 0.90)";
+    selectedWindow.style.backgroundColor = "rgba(50, 50, 50, 0.75)";
+    selectedWindow.style.boxShadow = "0px 0px 50px rgba(0, 0, 0, 0.50)";
 
     windows.forEach(window => {
         if (window !== selectedWindow) {
@@ -441,6 +442,7 @@ function bringToFront(selectedWindow) {
                 window.style.zIndex = currentZIndex - 1;
                 window.style.backdropFilter = "blur(0px)";
                 window.style.backgroundColor = "rgba(50, 50, 50, 1)";
+                window.style.boxShadow = "0px 20px 50px rgba(0, 0, 0, 0.25)";
             }
         }
     });
@@ -691,3 +693,5 @@ function alert(app, title, body, proceedName, proceedFunction) {
     alerthold.appendChild(alert);
     document.getElementById('body').appendChild(alerthold);
 }
+
+openApp('Preview');

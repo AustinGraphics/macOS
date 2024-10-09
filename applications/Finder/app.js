@@ -166,7 +166,11 @@
             const fileExtensionPattern = /\.[0-9a-z]+$/i;
  
             if (!fileExtensionPattern.test(name)) {
-                itemDiv.addEventListener('click', () => fetchDirectoryContents(itemDirectory + '/' + name));
+                itemDiv.addEventListener('click', function(){
+                    itemDiv.style.backgroundColor = 'black';
+                }
+            )
+                itemDiv.addEventListener('dblclick', () => fetchDirectoryContents(itemDirectory + '/' + name));
             }
             if (cancel == false) {
                 body.appendChild(itemDiv);
